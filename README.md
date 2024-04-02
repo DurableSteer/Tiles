@@ -22,4 +22,14 @@ The gif_tile sketch uses the following libraries:
 - WiFiManager by tzapu (https://github.com/tzapu/WiFiManager)
 - SimpleFTPServer by xreef (https://github.com/xreef/SimpleFTPServer)
 - TFT_eSPI by Bodmer (https://github.com/Bodmer/TFT_eSPI)
+  
 These libraries can be simply installed from the library manager in the arduino ide.
+
+## How to Install
+### "installing" the scripts
+Currently the scripts are only tested and developed under Windows 10.
+1. Install python and pip (i used python3) from https://www.python.org/downloads/
+2. Install the following dependencies via pip:
+   - PyQt6 via `pip install PyQt6`
+   - Pillow via `pip install pillow`
+   - 
