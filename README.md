@@ -32,4 +32,9 @@ Currently the scripts are only tested and developed under Windows 10.
 2. Install the following dependencies via pip:
    - PyQt6 via `pip install PyQt6`
    - Pillow via `pip install pillow`
-   - 
+3. Download "convert.py", "start_tileman.bat" and "tileman.py" and place them in an empty folder of your choice.
+4. Download the precompiled gifscicle zip from https://www.lcdf.org/gifsicle/ and unpack into the same folder.
+5. Make sure that "convert.py", "start_tileman.bat", "tileman.py" and "gifsicle.exe" are in the same folder and named that.
+6. Done. You can now start tileman with doubleclicking start_tileman.bat or directly starting the tileman.py script from the terminal.
+
+### installing the sketch onto an esp8266
