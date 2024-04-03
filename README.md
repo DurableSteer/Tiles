@@ -2,12 +2,12 @@
 
 (*excuse my crappy phone camera*)
 
-# Tiles
+# **Tiles**
 Gif tiles are small modular displays that can play animated gifs. The tiles share a common usb power source and connect magnetically so they can be rearranged as one likes and multiple tiles only use one power cable. The tiles use an esp8266 module and gifs are uploaded easily from any computer in the WiFi network via a basic GUI i called tileman.
 
 This is going to cover the software side of this project. If you are looking for the hardware side and building instructions they can be found at [insert link] .
 
-## dependencies
+## **Dependencies**
 The tileman script uses PyQt6, and ftplib. 
 It also uses my convert.py script.
 
@@ -25,7 +25,7 @@ The gif_tile sketch uses the following libraries:
   
 These libraries can be simply installed from the library manager in the arduino ide.
 
-## How to Install
+## **How to Install**
 ### "installing" the scripts
 Currently the scripts are only tested and developed under Windows 10.
 1. Install python and pip (i used python3) from https://www.python.org/downloads/ .
@@ -86,7 +86,7 @@ Similarly if the script doesn't find all tiles in the network or you restart a t
 When starting the start_tileman.bat a terminal will open with the GUI, if starting the tileman.py directly from the terminal that terminal is going to function as the tilemans terminal.
 The tileman will give comprehensive information about it's current workings in the terminal. Errors and progress information can be gathered there, though it is not necessary to read or pay attention to in normal use.
 
-### The Tiles
+### **The Tiles**
 The Tiles try to display any file in their local filesystem on the connected screen. Tiles have to be connected to a local WiFi network to be set up and they host a basic ftp server through which files can be uploaded and deleted. Updates can be applied wirelessly. I will give a brief description on how each of the parts work and how you may interact with them.
 #### The Filesystem
 The tiles use the inbuild implementation of LittleFS to store files in the esp8266s flash. The most common variants of the esp8266 have 4MB of flash of which ~3MB are available as storage to save gifs in. If you get a version of the esp8266 with more storage you have to adjust the flash partition table in the Arduino IDE otherwise you will still end up with 3MB of usable storage.(*3MB seem to be plenty of space for gifs during my testing. I don't recommend going out of your way to increase storage though adding an SD card or spi flash is certainly possible.*)
@@ -122,5 +122,5 @@ Handling the tiles display is done via the TFT_eSPI library. Any display driver 
 #### The Gif Decoder
 Gifs are decoded and drawn to the display with the AnimatedGIF library. The main loop will cycle through all files in the filesystem displaying each for about 15 seconds before loading the next file. Therefore if multiple gifs are uploaded they will be displayed as a slideshow. The Gifs names are used to transport a background color in the form: '0xFFFFFF_[gif name]' manually uploaded files or non gif files may cause errors in the background color if this naming scheme isn't used but shouldn't crash the system.
 
-# Thanks
+# **Thanks**
 I wish to thank everyone mentioned in the dependencies section for their generous contribution to the diy community and their hard work in creating the librarys that made this project possible. Stay awesome.
