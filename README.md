@@ -101,7 +101,7 @@ The access point is started for 1min only so that in case of a loss of connectio
 ![image](https://github.com/DurableSteer/Tiles/assets/140595465/5adc76e7-c949-4058-88fb-a1e299cbf895)
 
 Updates or different sketches may be uploaded to an assembled tile wirelessly through the WiFiManager library by the following process:
-1. Use the verify button to compile the updated sketch in the Arduino IDE.(*Make sure that the `File->Preferences->"Show verbose output during []'compile'"` checkbox is ticked!*)
+1. Use the verify button to compile the updated sketch in the Arduino IDE.(*Make sure that the `File->Preferences->"Show verbose output during 'compile'"` checkbox is ticked!*)
 2. In the Output terminal you should see the "Creating BIN file" (*see image above*) message followed by a path to the compiled update file.
 3. Copy the .bin file to the device you want to use to update the tile.
 4. Disable the WiFi network saved to the tile or bring the tile to a place where it cannot connect to it.
