@@ -106,3 +106,17 @@ Updates or different sketches may be uploaded to an assembled tile wirelessly th
 7. Press the 'update' button and select the compiled sketch.bin in the file upload dialog.
 8. Press 'update' and wait for the landing page to display the update successfull message.
 9. Done. Your tile is now updated.
+
+#### The FTP Server
+Tiles use the SimpleFTPServer library to host a ftp server to the WiFi network. Through this server files on the tile can be managed via anonymous unprotected access by default. If you want to use login credentials you may add them as parameters to the following line in the setup function: ftpSrv.begin("[username]","[password]",wifi_station_get_hostname()); Be adviced that the tileman currently does not use login credentials and will therefore fail to find any tile modified in this way. The library has some limitations that you need to take into account if you want to use an ftp client to access the tiles. 
+1. The library owner states that it only works in passive mode. I was only able to connect in active mode though and suggest doing the same.
+2. The client may only use one connection per tile at a time.
+
+#### The Display
+Handling the tiles display is done via the TFT_eSPI library. Any display driver supported by that library may be used with the tiles, therefore it is necessary to provide a setup file to set the Pins used, speed of the spi connection, color order and so on to the library before compiling the sketch. I will provide setup files for the most common cheap displays available on Aliexpress. My setup file for the driver types can be found in this repo at sketch/[your driver name]/User_Setup.h . (If you have issues with your display the setup file may be a good starting point.)
+
+#### The Gif Decoder
+Gifs are decoded and drawn to the display with the AnimatedGIF library. The main loop will cycle through all files in the filesystem displaying each for about 15 seconds before loading the next file. Therefore if multiple gifs are uploaded they will be displayed as a slideshow. The Gifs names are used to transport a background color in the form: '0xFFFFFF_[gif name]' manually uploaded files or non gif files may cause errors in the background color if this naming scheme isn't used but shouldn't crash the system.
+
+# Thanks
+I wish to thank everyone mentioned in the dependencies section for their generous contribution to the diy community and their hard work in creating the librarys that allowed me to make this project possible. Stay awesome.
