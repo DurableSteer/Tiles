@@ -46,7 +46,7 @@ Currently the scripts are only tested and developed under Windows 10.
 3. Download the "gif_tile.ino" from the sketch folder and open it with the Arduino IDE.
 4. Make sure that your esp8266 board is set up and selected.
 5. Change the flash table in the IDE under Tools->Flash Size . Most common esp8266 boards come with 4MB Flash. If your esp8266 board has 4MB too choose 4MB(FS:3MB OTA:512KB). If your board has less or more flash choose the highest FS for your flash size with OTA. (FS is going to be the amount of space you will have to save gifs to the tile!) If you have the option change Tools->CPU Frequency to 160MHz as well.
-6. Replace the User_Setup.h in the TFT_eSPI library folder (normally saved at C:\Users\[username]\Documents\Arduino\libraries\TFT_eSPI\User_Setup.h ) with the one from this repository at
+6. Replace the User_Setup.h in the TFT_eSPI library folder (normally saved at C:\Users\[username]\Documents\Arduino\libraries\TFT_eSPI\User_Setup.h ) with the one from this repository at__
    sketch/[your display driver]/User_Setup.h .
    (if you have problems with your display you may change settings here, depending on your display changes may be necessary. You can find additional information in the file or at the wiring section of the building guide at printables. This file will be automatically overwritten on each update of the TFT_eSPI library so keep a copy!)
 8. Upload the sketch to your board. The display should show text and the tile should be emitting a WiFi access point with a name similiar to "ESP-5FCA28".
@@ -67,16 +67,19 @@ Files present on a tile are displayed on the right behind the delete all button.
 #### Convert
 Dropped files will first be converted with the convert.py script based on the settings in the leftmost panel for each tile. Settings can be changed for each file uploaded and only affect the file later uploaded. No settings on the tile will be changed. 
 -The following options are available from top to bottom:-
-##### orientation
-The orientation combobox lets you choose the orientation of the gif/gifs uploaded. A tiny triangle on top of the tile will be the top of the standard portrait orientation. Each of the following options turns the image by 90° clockwise.
-##### just upload
-If the 'just upload' tickbox is checked files will be uploaded to the tile without any conversion the file will also not be rotated.
-##### resize and remove transparency
-This tickbox will resize the file to fit the tiles displays resolution, rotate it based on the orientation setting and replace the files transparent pixels with black.
-##### convert with custom bgcolor
-When chosen this option will resize, rotate and replace the gifs transparent pixels with the color chosen. The color can be picked by clicking the 'pick color' button directly underneath the button will then display the chosen color.
-##### convert with auto bgcolor
-This option will resize, rotate and replace all transparent pixels by a fitting color to be chosen automatically by the convert script. This is the default option and it is recommended to use.
+- ##### orientation
+  The orientation combobox lets you choose the orientation of the gif/gifs uploaded. A tiny triangle on top of the tile will be the top of the standard portrait orientation. Each of the 
+  following options turns the image by 90° clockwise.
+- ##### just upload
+  If the 'just upload' tickbox is checked files will be uploaded to the tile without any conversion the file will also not be rotated.
+  ##### resize and remove transparency
+  This tickbox will resize the file to fit the tiles displays resolution, rotate it based on the orientation setting and replace the files transparent pixels with black.
+- ##### convert with custom bgcolor
+  When chosen this option will resize, rotate and replace the gifs transparent pixels with the color chosen. The color can be picked by clicking the 'pick color' button directly underneath 
+  the button will then display the chosen color.
+- ##### convert with auto bgcolor
+  This option will resize, rotate and replace all transparent pixels by a fitting color to be chosen automatically by the convert script. This is the default option and it is recommended to 
+  use.
 #### refresh tile contents & scan for tiles again
 These buttons are generally not necessary to use. The script will only update the view when an action is taken that would change the element in question. If you for some reason expect that not all the tiles contents are displayed you may use the 'refresh tile contents' button to force a manual update for all found tiles files. 
 Similarly if the script doesn't find all tiles in the network or you restart a tile or add a new tile to the network you may press the 'scan for tiles again' button to manually scan for tiles in the network. Due to a high timeout this option can only be used after about 30 seconds from the last scan. If the button is pressed before the last scan is finished no action will be taken and a message will be printed to the terminal.
@@ -99,7 +102,7 @@ The access point is started for 1min only so that in case of a loss of connectio
 ![image](https://github.com/DurableSteer/Tiles/assets/140595465/5adc76e7-c949-4058-88fb-a1e299cbf895)
 
 Updates or different sketches may be uploaded to an assembled tile wirelessly through the WiFiManager library by the following process:
-1. Use the verify button to compile the updated sketch in the Arduino IDE.(Make sure that the File->Preferences->"Show verbose output during 'compile'" checkbox is ticked!)
+1. Use the verify button to compile the updated sketch in the Arduino IDE.(Make sure that the File->Preferences->"Show verbose output during []'compile'" checkbox is ticked!)
 2. In the Output terminal you should see the "Creating BIN file"(see image above) message followed by a path to the compiled update file.
 3. Copy the .bin file to the device you want to use to update the tile.
 4. Disable the WiFi network saved to the tile or bring the tile to a place where it cannot connect to it.
