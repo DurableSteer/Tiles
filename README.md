@@ -123,4 +123,4 @@ Handling the tiles display is done via the TFT_eSPI library. Any display driver 
 Gifs are decoded and drawn to the display with the AnimatedGIF library. The main loop will cycle through all files in the filesystem displaying each for about 15 seconds before loading the next file. Therefore if multiple gifs are uploaded they will be displayed as a slideshow. The Gifs names are used to transport a background color in the form: '0xFFFFFF_[gif name]' manually uploaded files or non gif files may cause errors in the background color if this naming scheme isn't used but shouldn't crash the system.
 
 # Thanks
-I wish to thank everyone mentioned in the dependencies section for their generous contribution to the diy community and their hard work in creating the librarys that allowed me to make this project possible. Stay awesome.
+I wish to thank everyone mentioned in the dependencies section for their generous contribution to the diy community and their hard work in creating the librarys that made this project possible. Stay awesome.
