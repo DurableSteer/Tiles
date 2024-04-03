@@ -79,7 +79,7 @@ Dropped files will first be converted with the convert.py script based on the se
 - ##### convert with auto bgcolor
   This option will resize, rotate and replace all transparent pixels by a fitting color to be chosen automatically by the convert script. This is the default option and it is recommended to 
   use.
-#### refresh tile contents & scan for tiles again
+#### Refresh tile contents & Scan for tiles again
 These buttons are generally not necessary to use. The script will only update the view when an action is taken that would change the element in question. If you for some reason expect that not all the tiles contents are displayed you may use the 'refresh tile contents' button to force a manual update for all found tiles files. 
 Similarly if the script doesn't find all tiles in the network or you restart a tile or add a new tile to the network you may press the 'scan for tiles again' button to manually scan for tiles in the network. Due to a high timeout this option can only be used after about 30 seconds from the last scan. If the button is pressed before the last scan is finished no action will be taken and a message will be printed to the terminal.
 ##### The terminal
