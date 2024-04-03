@@ -26,7 +26,7 @@ The gif_tile sketch uses the following libraries:
 These libraries can be simply installed from the library manager in the arduino ide.
 
 ## **How to Install**
-### "installing" the scripts
+### "Installing" the scripts
 Currently the scripts are only tested and developed under Windows 10.
 1. Install python and pip (i used python3) from https://www.python.org/downloads/ .
    (Make sure that you check the "`Add python.exe to PATH`" option on the first page of the installation.)
@@ -40,7 +40,7 @@ Currently the scripts are only tested and developed under Windows 10.
 8. Done. You can now start tileman with doubleclicking start_tileman.bat or directly starting the tileman.py script from the terminal.
    (if no tiles are found check if the firewall is disallowing access to the network)
 
-### installing the sketch onto an esp8266 board
+### Installing the sketch onto an esp8266 board
 1. Install the Arduino IDE from https://www.arduino.cc/en/software
 2. Install AnimatedGIF by Larry Bank, WiFiManager by tzapu, SimpleFTPServer by Renzo Mischianti and TFT_eSPI by Bodmer in the Arduino IDE with the IDEs library manager.
 3. Download the "gif_tile.ino" from the sketch folder and open it with the Arduino IDE.
