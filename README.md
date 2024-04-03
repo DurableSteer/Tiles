@@ -46,10 +46,12 @@ Currently the scripts are only tested and developed under Windows 10.
 3. Download the "gif_tile.ino" from the sketch folder and open it with the Arduino IDE.
 4. Make sure that your esp8266 board is set up and selected.
 5. Change the flash table in the IDE under Tools->Flash Size . Most common esp8266 boards come with 4MB Flash. If your esp8266 board has 4MB too choose 4MB(FS:3MB OTA:512KB). If your board has less or more flash choose the highest FS for your flash size with OTA. (FS is going to be the amount of space you will have to save gifs to the tile!) If you have the option change Tools->CPU Frequency to 160MHz as well.
-6. Replace the User_Setup.h in the TFT_eSPI library folder (normally saved at C:\Users\[username]\Documents\Arduino\libraries\TFT_eSPI\User_Setup.h ) with the one from this repository at  sketch/[your display driver]/User_Setup.h (if you have problems with your display you may change settings here, depending on your display changes may be necessary. You can find additional information in the file or at the wiring section of the building guide at printables. This file will be automatically overwritten on each update of the TFT_eSPI library so keep a copy!)
-7. Upload the sketch to your board. The display should show text and the tile should be emitting a WiFi access point with a name similiar to "ESP-5FCA28".
-8. Connect to the emitted WiFi access point and connect the tile to your local WiFi network via the landing page.(if the landing page isn't opened automatically it is available at 192.168.4.1 via your browser.)(If you connect with your fone you may need to disconnect your mobile data before you can access the landing page.)
-9. Done. You can now find your tile with the tileman or an ftp client from the same network.
+6. Replace the User_Setup.h in the TFT_eSPI library folder (normally saved at C:\Users\[username]\Documents\Arduino\libraries\TFT_eSPI\User_Setup.h ) with the one from this repository at
+   sketch/[your display driver]/User_Setup.h .
+   (if you have problems with your display you may change settings here, depending on your display changes may be necessary. You can find additional information in the file or at the wiring section of the building guide at printables. This file will be automatically overwritten on each update of the TFT_eSPI library so keep a copy!)
+8. Upload the sketch to your board. The display should show text and the tile should be emitting a WiFi access point with a name similiar to "ESP-5FCA28".
+9. Connect to the emitted WiFi access point and connect the tile to your local WiFi network via the landing page.(if the landing page isn't opened automatically it is available at 192.168.4.1 via your browser.)(If you connect with your fone you may need to disconnect your mobile data before you can access the landing page.)
+10. Done. You can now find your tile with the tileman or an ftp client from the same network.
 
 ## How to use
 ### Tileman 
