@@ -86,6 +86,7 @@ Similarly if the script doesn't find all tiles in the network or you restart a t
 When starting the start_tileman.bat a terminal will open with the GUI, if starting the tileman.py directly from the terminal that terminal is going to function as the tilemans terminal.
 The tileman will give comprehensive information about it's current workings in the terminal. Errors and progress information can be gathered there, though it is not necessary to read or pay attention to in normal use.
 
+
 ### **The Tiles**
 The Tiles try to display any file in their local filesystem on the connected screen. Tiles have to be connected to a local WiFi network to be set up and they host a basic ftp server through which files can be uploaded and deleted. Updates can be applied wirelessly. I will give a brief description on how each of the parts work and how you may interact with them.
 #### The Filesystem
@@ -121,6 +122,7 @@ Handling the tiles display is done via the TFT_eSPI library. Any display driver 
 
 #### The Gif Decoder
 Gifs are decoded and drawn to the display with the AnimatedGIF library. The main loop will cycle through all files in the filesystem displaying each for about 15 seconds before loading the next file. Therefore if multiple gifs are uploaded they will be displayed as a slideshow. The Gifs names are used to transport a background color in the form: '0xFFFFFF_[gif name]' manually uploaded files or non gif files may cause errors in the background color if this naming scheme isn't used but shouldn't crash the system.
+
 
 # **Thanks**
 I wish to thank everyone mentioned in the dependencies section for their generous contribution to the diy community and their hard work in creating the librarys that made this project possible. Stay awesome.
