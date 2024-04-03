@@ -66,7 +66,7 @@ Files present on a tile are displayed on the right behind the delete all button.
 #### Convert
 Dropped files will first be converted with the convert.py script based on the settings in the leftmost panel for each tile. Settings can be changed for each file uploaded and only affect the file later uploaded. No settings on the tile will be changed. 
 -The following options are available from top to bottom:-
-- ##### orientation
+- ##### orientation combobox
   The orientation combobox lets you choose the orientation of the gif or gifs uploaded. A tiny triangle on top of the tile will be the top of the standard portrait orientation. Each of the 
   following options turns the image by 90° clockwise.
 - ##### just upload
