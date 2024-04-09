@@ -3,7 +3,7 @@
 (*excuse my crappy phone camera*)
 
 # **Tiles**
-Gif tiles are small modular displays that can play animated gifs. The tiles share a common usb power source and connect magnetically so they can be rearranged as one likes and multiple tiles only use one power cable. The tiles use an esp8266 module and gifs are uploaded easily from any computer in the WiFi network via a basic GUI i called tileman.
+Gif tiles are small modular displays that can play animated gifs. The tiles share a common usb power source and connect magnetically so they can be rearranged as one likes and multiple tiles only use one power cable. The tiles use an esp8266 module and gifs are uploaded easily from any computer in the WiFi network via a basic GUI I called tileman.
 
 This is going to cover the software side of this project. If you are looking for the hardware side and building instructions they can be found at https://www.printables.com/de/model/837746-parametric-gif-tiles .
 
@@ -23,12 +23,12 @@ The gif_tile sketch uses the following libraries:
 - SimpleFTPServer by xreef(Renzo Mischianti) (https://github.com/xreef/SimpleFTPServer)
 - TFT_eSPI by Bodmer (https://github.com/Bodmer/TFT_eSPI)
   
-These libraries can be simply installed from the library manager in the arduino ide.
+These libraries can be simply installed from the library manager in the Arduino IDE.
 
 ## **How to Install**
 ### "Installing" the scripts
 Currently the scripts are only tested and developed under Windows 10.
-1. Install python and pip (i used python3) from https://www.python.org/downloads/ .
+1. Install python and pip (I used python3) from https://www.python.org/downloads/ .
    (Make sure that you check the "`Add python.exe to PATH`" option on the first page of the installation.)
 3. Install the following dependencies in the terminal via pip:
    - PyQt6 via `pip install PyQt6`
@@ -37,7 +37,7 @@ Currently the scripts are only tested and developed under Windows 10.
 5. Download "convert.py", "start_tileman.bat" and "tileman.py" and place them in an empty folder of your choice.
 6. Download the precompiled gifscicle zip from https://www.lcdf.org/gifsicle/ and unpack into the same folder.
 7. Make sure that "convert.py", "start_tileman.bat", "tileman.py" and "gifsicle.exe" are in the same folder and named that.
-8. Done. You can now start tileman with doubleclicking start_tileman.bat or directly starting the tileman.py script from the terminal.
+8. Done. You can now start tileman with double clicking start_tileman.bat or directly starting the tileman.py script from the terminal.
    (if no tiles are found check if the firewall is disallowing access to the network)
 
 ### Installing the sketch onto an esp8266 board
@@ -48,8 +48,8 @@ Currently the scripts are only tested and developed under Windows 10.
 5. Change the flash table in the IDE under `Tools->Flash Size` . Most common esp8266 boards come with 4MB Flash. If your esp8266 board has 4MB too choose `4MB(FS:3MB OTA:512KB)`. If your board has less or more flash choose the highest FS for your flash size with OTA. (FS is going to be the amount of space you will have to save gifs to the tile!) If you have the option change `Tools->CPU Frequency` to 160MHz as well.
 6. Replace the User_Setup.h in the TFT_eSPI library folder (*normally saved at `C:\Users\[username]\Documents\Arduino\libraries\TFT_eSPI\User_Setup.h`* ) with the one from this repository<br />at `sketch/[your display driver]/User_Setup.h` .
    (if you have problems with your display you may change settings here, depending on your display changes may be necessary. You can find additional information in the file or at the wiring section of the building guide at printables. This file will be automatically overwritten on each update of the TFT_eSPI library so keep a copy!)
-8. Upload the sketch to your board. The display should show text and the tile should be emitting a WiFi access point with a name similiar to "ESP-5FCA28".
-9. Connect to the emitted WiFi access point and connect the tile to your local WiFi network via the landing page.(*If the landing page isn't opened automatically it is available at 192.168.4.1 via your browser.*)(*If you connect with your fone you may need to disconnect your mobile data before you can access the landing page.*)
+8. Upload the sketch to your board. The display should show text and the tile should be emitting a WiFi access point with a name similar to "ESP-5FCA28".
+9. Connect to the emitted WiFi access point and connect the tile to your local WiFi network via the landing page.(*If the landing page isn't opened automatically it is available at 192.168.4.1 via your browser.*)(*If you connect with your phone you may need to disconnect your mobile data before you can access the landing page.*)
 10. Done. You can now find your tile with the tileman or an ftp client from the same network.
 
 ## How to use
@@ -94,9 +94,9 @@ The tiles use the inbuild implementation of LittleFS to store files in the esp82
 #### The WiFi 
 The Wifi connection is handled by the WifiManager library. Once a tile goes online it will try to connect to the local WiFi. If no wifi credentials have been set up or no known network is available on powerup tiles will start an access point named after the host name of the esp8266 e.g. something like "ESP-5FCA28". On connection a landing page will be automatically opened giving the user information about the library and the tile as well as an option to 'configure WiFi' and upload updates(see __Updates__). Once a connection is set up the tile will automatically connect to that network on startup and no access point is started. 
 
-If no WiFi is available and the accesspoint is started the tiles screen will display: "No WiFi. Connect to access point please.".
+If no WiFi is available and the access point is started the tiles screen will display: "No WiFi. Connect to access point please.".
 
-The access point is started for 1min only so that in case of a loss of connection the tile won't be locked. After 1min the normal working routine will be started and gifs on the tile will be displayed. (*If you can't find the access point on setting a tile up try reconnecting the powersource.*)
+The access point is started for 1min only so that in case of a loss of connection the tile won't be locked. After 1min the normal working routine will be started and gifs on the tile will be displayed. (*If you can't find the access point on setting a tile up try reconnecting the power source.*)
 
 #### Updates
 ![image](https://github.com/DurableSteer/Tiles/assets/140595465/5adc76e7-c949-4058-88fb-a1e299cbf895)
@@ -109,11 +109,11 @@ Updates or different sketches may be uploaded to an assembled tile wirelessly th
 5. Power the tile. "No WiFi. Connect to access point please." should be displayed.
 6. Connect to the tiles access point and open the WiFiManager landing page.
 7. Press the 'update' button and select the compiled sketch.bin in the file upload dialog.
-8. Press 'update' and wait for the landing page to display the update successfull message.
+8. Press 'update' and wait for the landing page to display the update successful message.
 9. Done. Your tile is now updated.
 
 #### The FTP Server
-Tiles use the SimpleFTPServer library to host a ftp server to the WiFi network. Through this server files on the tile can be managed via anonymous unprotected access by default. If you want to use login credentials you may add them as parameters to the following line in the setup function: `ftpSrv.begin("[username]","[password]",wifi_station_get_hostname());` Be adviced that the tileman currently does not use login credentials and will therefore fail to find any tile modified in this way. The library has some limitations that you need to take into account if you want to use an ftp client to access the tiles. 
+Tiles use the SimpleFTPServer library to host a ftp server to the WiFi network. Through this server files on the tile can be managed via anonymous unprotected access by default. If you want to use login credentials you may add them as parameters to the following line in the setup function: `ftpSrv.begin("[username]","[password]",wifi_station_get_hostname());` Be advised that the tileman currently does not use login credentials and will therefore fail to find any tile modified in this way. The library has some limitations that you need to take into account if you want to use an ftp client to access the tiles. 
 1. The library owner states that it only works in passive mode. I was only able to connect in active mode though and suggest doing the same.
 2. The client may only use one connection per tile at a time.
 
@@ -125,4 +125,4 @@ Gifs are decoded and drawn to the display with the AnimatedGIF library. The main
 
 
 # **Thanks**
-I wish to thank everyone mentioned in the dependencies section for their generous contribution to the diy community and their hard work in creating the librarys that made this project possible. Stay awesome.
+I wish to thank everyone mentioned in the dependencies section for their generous contribution to the DIY community and their hard work in creating the libraries that made this project possible. Stay awesome.
