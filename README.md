@@ -1,4 +1,4 @@
-![single_tile](https://github.com/DurableSteer/tiles/assets/140595465/330805dd-f951-40a7-80c1-63ac52a086ab) ![VID_20240410_233426online-video-cutter com-ezgif com-optimize](https://github.com/DurableSteer/Tiles/assets/140595465/b840ff9f-f020-477c-bef1-f7736b8db0a4)
+![VID_20240410_233426online-video-cutter com-ezgif com-optimize](https://github.com/DurableSteer/Tiles/assets/140595465/b840ff9f-f020-477c-bef1-f7736b8db0a4)
 
 
 
