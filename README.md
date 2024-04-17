@@ -6,8 +6,8 @@
 
 (*excuse my crappy phone camera*)
 
-# **Tiles**
-Gif tiles are small modular displays that can play animated gifs. The tiles share a common usb power source and connect magnetically so they can be rearranged as one likes and multiple tiles only use one power cable. The tiles use an esp8266 module and gifs are uploaded easily from any computer in the WiFi network via a basic GUI I called tileman.
+# **Gif Tiles**
+Gif Tiles are small modular displays that can play animated gifs. The Tiles share a common usb power source and connect magnetically so they can be rearranged as one likes and multiple Tiles only use one power cable. The Tiles use an esp8266 module and gifs are uploaded easily from any computer in the WiFi network via a basic GUI I called tileman.
 
 This is going to cover the software side of this project. If you are looking for the hardware side and building instructions they can be found at https://www.printables.com/de/model/837746-parametric-gif-tiles .
 
@@ -42,7 +42,7 @@ Currently the scripts are only tested and developed under Windows 10.
 6. Download the precompiled gifscicle zip from https://www.lcdf.org/gifsicle/ and unpack into the same folder.
 7. Make sure that "convert.py", "start_tileman.bat", "tileman.py" and "gifsicle.exe" are in the same folder and named that.
 8. Done. You can now start tileman with double clicking start_tileman.bat or directly starting the tileman.py script from the terminal.
-   (if no tiles are found check if the firewall is disallowing access to the network)
+   (if no Tiles are found check if the firewall is disallowing access to the network)
 
 ### Installing the sketch onto an esp8266 board
 1. Install the Arduino IDE from https://www.arduino.cc/en/software
@@ -60,10 +60,10 @@ Currently the scripts are only tested and developed under Windows 10.
 ### Tileman 
 ![image](https://github.com/DurableSteer/Tiles/assets/140595465/cb5b67de-3096-4a8d-876f-23caceef3844)
 
-The tileman GUI allows easy upload of any gif you want a gif tile in the same WiFi to display. It also converts gifs before upload via the convert.py script as later explained and allows for deleting files off the gif tiles. 
+The tileman GUI allows easy upload of any gif you want a gif tile in the same WiFi to display. It also converts gifs before upload via the convert.py script as later explained and allows for deleting files off the gif Tiles. 
 ### Tileman functions
 #### Upload
-Gifs can be simply dragged and dropped onto the tile you want it to be uploaded to. You can upload one or multiple files with one drag and drop. Currently only gif files can be handled by the GUI. The gif will then be converted based on the tiles current settings for upload. (See __Convert__) The upload percentage during a files upload is displayed on the progress bar.
+Gifs can be simply dragged and dropped onto the tile you want it to be uploaded to. You can upload one or multiple files with one drag and drop. Currently only gif files can be handled by the GUI. The gif will then be converted based on the Tiles current settings for upload. (See __Convert__) The upload percentage during a files upload is displayed on the progress bar.
 If there isn't enough free storage on the tile a message will be printed to the terminal and the file won't be uploaded.
 #### Deletion
 Files present on a tile are displayed on the right behind the delete all button. Each file can be deleted individually with the 'x' button to the right of the filename. Additionally all files on the tile can be deleted with the delete all button.
@@ -76,16 +76,16 @@ Dropped files will first be converted with the convert.py script based on the se
 - ##### just upload
   If the 'just upload' tickbox is checked files will be uploaded to the tile without any conversion the file will also not be rotated.
   ##### resize and remove transparency
-  This tickbox will resize the file to fit the tiles displays resolution, rotate it based on the orientation setting and replace the files transparent pixels with black.
+  This tickbox will resize the file to fit the Tiles displays resolution, rotate it based on the orientation setting and replace the files transparent pixels with black.
 - ##### convert with custom bgcolor
   When chosen this option will resize, rotate and replace the gifs transparent pixels with the color chosen. The color can be picked by clicking the 'pick color' button directly underneath 
   the button will then display the chosen color.
 - ##### convert with auto bgcolor
   This option will resize, rotate and replace all transparent pixels by a fitting color to be chosen automatically by the convert script. This is the default option and it is recommended to 
   use.
-#### Refresh tile contents & Scan for tiles again
-These buttons are generally not necessary to use. The script will only update the view when an action is taken that would change the element in question. If you for some reason expect that not all the tiles contents are displayed you may use the 'refresh tile contents' button to force a manual update for all found tiles files. 
-Similarly if the script doesn't find all tiles in the network or you restart a tile or add a new tile to the network you may press the 'scan for tiles again' button to manually scan for tiles in the network. Due to a high timeout this option can only be used after about 30 seconds from the last scan. If the button is pressed before the last scan is finished no action will be taken and a message will be printed to the terminal.
+#### Refresh tile contents & Scan for Tiles again
+These buttons are generally not necessary to use. The script will only update the view when an action is taken that would change the element in question. If you for some reason expect that not all the Tiles contents are displayed you may use the 'refresh tile contents' button to force a manual update for all found Tiles files. 
+Similarly if the script doesn't find all Tiles in the network or you restart a tile or add a new tile to the network you may press the 'scan for Tiles again' button to manually scan for Tiles in the network. Due to a high timeout this option can only be used after about 30 seconds from the last scan. If the button is pressed before the last scan is finished no action will be taken and a message will be printed to the terminal.
 ##### The terminal
 When starting the start_tileman.bat a terminal will open with the GUI, if starting the tileman.py directly from the terminal that terminal is going to function as the tilemans terminal.
 The tileman will give comprehensive information about it's current workings in the terminal. Errors and progress information can be gathered there, though it is not necessary to read or pay attention to in normal use.
@@ -94,11 +94,11 @@ The tileman will give comprehensive information about it's current workings in t
 ### **The Tiles**
 The Tiles try to display any file in their local filesystem on the connected screen. Tiles have to be connected to a local WiFi network to be set up and they host a basic ftp server through which files can be uploaded and deleted. Updates can be applied wirelessly. I will give a brief description on how each of the parts work and how you may interact with them.
 #### The Filesystem
-The tiles use the inbuild implementation of LittleFS to store files in the esp8266s flash. The most common variants of the esp8266 have 4MB of flash of which ~3MB are available as storage to save gifs in. If you get a version of the esp8266 with more storage you have to adjust the flash partition table in the Arduino IDE otherwise you will still end up with 3MB of usable storage.(*3MB seem to be plenty of space for gifs during my testing. I don't recommend going out of your way to increase storage though adding an SD card or spi flash is certainly possible.*)
+The Tiles use the inbuild implementation of LittleFS to store files in the esp8266s flash. The most common variants of the esp8266 have 4MB of flash of which ~3MB are available as storage to save gifs in. If you get a version of the esp8266 with more storage you have to adjust the flash partition table in the Arduino IDE otherwise you will still end up with 3MB of usable storage.(*3MB seem to be plenty of space for gifs during my testing. I don't recommend going out of your way to increase storage though adding an SD card or spi flash is certainly possible.*)
 #### The WiFi 
-The Wifi connection is handled by the WifiManager library. Once a tile goes online it will try to connect to the local WiFi. If no wifi credentials have been set up or no known network is available on powerup tiles will start an access point named after the host name of the esp8266 e.g. something like "ESP-5FCA28". On connection a landing page will be automatically opened giving the user information about the library and the tile as well as an option to 'configure WiFi' and upload updates(see __Updates__). Once a connection is set up the tile will automatically connect to that network on startup and no access point is started. 
+The Wifi connection is handled by the WifiManager library. Once a tile goes online it will try to connect to the local WiFi. If no wifi credentials have been set up or no known network is available on powerup Tiles will start an access point named after the host name of the esp8266 e.g. something like "ESP-5FCA28". On connection a landing page will be automatically opened giving the user information about the library and the tile as well as an option to 'configure WiFi' and upload updates(see __Updates__). Once a connection is set up the tile will automatically connect to that network on startup and no access point is started. 
 
-If no WiFi is available and the access point is started the tiles screen will display: "No WiFi. Connect to access point please.".
+If no WiFi is available and the access point is started the Tiles screen will display: "No WiFi. Connect to access point please.".
 
 The access point is started for 1min only so that in case of a loss of connection the tile won't be locked. After 1min the normal working routine will be started and gifs on the tile will be displayed. (*If you can't find the access point on setting a tile up try reconnecting the power source.*)
 
@@ -111,18 +111,18 @@ Updates or different sketches may be uploaded to an assembled tile wirelessly th
 3. Copy the .bin file to the device you want to use to update the tile.
 4. Disable the WiFi network saved to the tile or bring the tile to a place where it cannot connect to it.
 5. Power the tile. "No WiFi. Connect to access point please." should be displayed.
-6. Connect to the tiles access point and open the WiFiManager landing page.
+6. Connect to the Tiles access point and open the WiFiManager landing page.
 7. Press the 'update' button and select the compiled sketch.bin in the file upload dialog.
 8. Press 'update' and wait for the landing page to display the update successful message.
 9. Done. Your tile is now updated.
 
 #### The FTP Server
-Tiles use the SimpleFTPServer library to host a ftp server to the WiFi network. Through this server files on the tile can be managed via anonymous unprotected access by default. If you want to use login credentials you may add them as parameters to the following line in the setup function: `ftpSrv.begin("[username]","[password]",wifi_station_get_hostname());` Be advised that the tileman currently does not use login credentials and will therefore fail to find any tile modified in this way. The library has some limitations that you need to take into account if you want to use an ftp client to access the tiles. 
+Tiles use the SimpleFTPServer library to host a ftp server to the WiFi network. Through this server files on the tile can be managed via anonymous unprotected access by default. If you want to use login credentials you may add them as parameters to the following line in the setup function: `ftpSrv.begin("[username]","[password]",wifi_station_get_hostname());` Be advised that the tileman currently does not use login credentials and will therefore fail to find any tile modified in this way. The library has some limitations that you need to take into account if you want to use an ftp client to access the Tiles. 
 1. The library owner states that it only works in passive mode. I was only able to connect in active mode though and suggest doing the same.
 2. The client may only use one connection per tile at a time.
 
 #### The Display
-Handling the tiles display is done via the TFT_eSPI library. Any display driver supported by that library may be used with the tiles, therefore it is necessary to provide a setup file to set the Pins used, speed of the spi connection, color order and so on to the library before compiling the sketch. I will provide setup files for the most common cheap displays available on Aliexpress. My setup file for the driver types can be found in this repo at `sketch/[your driver name]/User_Setup.h` . (If you have issues with your display the setup file may be a good starting point.)
+Handling the Tiles display is done via the TFT_eSPI library. Any display driver supported by that library may be used with the Tiles, therefore it is necessary to provide a setup file to set the Pins used, speed of the spi connection, color order and so on to the library before compiling the sketch. I will provide setup files for the most common cheap displays available on Aliexpress. My setup file for the driver types can be found in this repo at `sketch/[your driver name]/User_Setup.h` . (If you have issues with your display the setup file may be a good starting point.)
 
 #### The Gif Decoder
 Gifs are decoded and drawn to the display with the AnimatedGIF library. The main loop will cycle through all files in the filesystem displaying each for about 15 seconds before loading the next file. Therefore if multiple gifs are uploaded they will be displayed as a slideshow. The Gifs names are used to transport a background color in the form: '0xFFFFFF_[gif name]' manually uploaded files or non gif files may cause errors in the background color if this naming scheme isn't used but shouldn't crash the system.
